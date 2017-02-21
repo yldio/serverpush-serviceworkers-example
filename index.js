@@ -22,7 +22,9 @@ app.get('/', function (request, response) {
   }
 
   response.push('/style.css', {
-    'Content-Type': 'text/css'
+    response: {
+      'Content-Type': 'text/css'
+    }
   }, function(err, stream){
     if (err) {
       return;
@@ -31,7 +33,9 @@ app.get('/', function (request, response) {
   });
 
   response.push('/app.js', {
-    'Content-Type': 'application/javascript'
+    response: {
+      'Content-Type': 'application/javascript'
+    }
   }, function(err, stream){
     if (err) {
       return;
