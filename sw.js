@@ -5,10 +5,10 @@ this.addEventListener('install', function(event) {
     caches.open(cacheName).then(function(cache) {
       return cache.addAll([
         '/',
-        'public/app.js',
-        'assets/favicon.ico',
-        'assets/picture.png',
-        'assets/style.css'
+        'app.js',
+        'favicon.ico',
+        'picture.png',
+        'style.css'
       ]);
     })
   );
@@ -26,6 +26,6 @@ this.addEventListener('fetch', function(event) {
     });
     return response.clone();
   }).catch(function() {
-    return caches.match('assets/picture.png');
+    return caches.match('picture.png');
   }));
 });

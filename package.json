@@ -12,6 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "express": "^4.14.1",
     "https": "^1.0.0",
     "spdy": "^3.4.4"
   }
