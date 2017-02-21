@@ -23,7 +23,8 @@ app.get('/', function (request, response) {
 
   response.push('/style.css', {
     response: {
-      'Content-Type': 'text/css'
+      'Content-Type': 'text/css',
+      'Cache-Control': 'max-age=300'
     }
   }, function(err, stream){
     if (err) {

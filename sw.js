@@ -1,5 +1,8 @@
 let cacheName = 'v1';
 
+
+// Note: we added { credentials: 'include' } because otherwise more than one connection would be used.
+// This happens by default because two different connections are created in HTTP/2 for credentialed and non-credentialed requests.
 this.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(cacheName).then(function(cache) {
@@ -9,7 +12,7 @@ this.addEventListener('install', function(event) {
         'favicon.ico',
         'picture.png',
         'style.css'
-      ]);
+      ].map(u => new Request(u, { credentials: 'include' })))
     })
   );
 });
