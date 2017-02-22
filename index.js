@@ -4,7 +4,6 @@ const spdy = require('spdy'),
   express = require('express')
   app = express();
 
-
 const options = {
   key: fs.readFileSync('keys/server.key'),
   cert: fs.readFileSync('keys/server.crt'),
@@ -23,8 +22,7 @@ app.get('/', function (request, response) {
 
   response.push('/style.css', {
     response: {
-      'Content-Type': 'text/css',
-      'Cache-Control': 'max-age=300'
+      'Content-Type': 'text/css'
     }
   }, function(err, stream){
     if (err) {

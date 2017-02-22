@@ -1,4 +1,5 @@
 if ('serviceWorker' in navigator) {
+  // REMOVE { insecure: true } in the following line if you're using this example and own a legitimate certificate
   navigator.serviceWorker.register('/sw.js', { insecure: true })
     .then(function(reg) {
 
