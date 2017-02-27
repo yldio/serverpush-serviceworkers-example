@@ -20,9 +20,11 @@ app.get('/', function (request, response) {
     return response.end('SPDY is off. We cannot use Server Push :(')
   }
 
+  // Note: we cached pushed files for 5 minutes (testing purposes)
   response.push('/style.css', {
     response: {
-      'Content-Type': 'text/css'
+      'Content-Type': 'text/css',
+      'Cache-Control': 'max-age=300'
     }
   }, function(err, stream){
     if (err) {
@@ -33,7 +35,8 @@ app.get('/', function (request, response) {
 
   response.push('/app.js', {
     response: {
-      'Content-Type': 'application/javascript'
+      'Content-Type': 'application/javascript',
+      'Cache-Control': 'max-age=300'
     }
   }, function(err, stream){
     if (err) {
@@ -43,7 +46,8 @@ app.get('/', function (request, response) {
   });
 
   response.writeHead(200, {
-    'Content-Type': 'text/html'
+    'Content-Type': 'text/html',
+    'Cache-Control': 'max-age=300'
   });
 
   const indexPath = path.join(__dirname, '/public/index.html');

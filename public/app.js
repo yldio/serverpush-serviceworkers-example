@@ -1,6 +1,7 @@
 if ('serviceWorker' in navigator) {
-  // REMOVE { insecure: true } in the following line if you're using this example and own a legitimate certificate
-  navigator.serviceWorker.register('/sw.js', { insecure: true })
+  // Note: you dont need { insecure: true } if you're using this example and own a legitimate certificate
+  // navigator.serviceWorker.register('/sw.js', { insecure: true })
+  navigator.serviceWorker.register('/sw.js')
     .then(function(reg) {
 
     if(reg.installing) {
